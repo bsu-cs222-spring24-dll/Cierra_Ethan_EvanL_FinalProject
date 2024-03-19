@@ -51,7 +51,7 @@ public class Main {
                 userInput=console.nextLine();
                 if(userInput.equals("Indiana"))
                 {
-                    System.out.println("There are three national parks in the state of Indiana: \n\nGeorge Rogers Clark Park\n\nIndiana Dunes Park\n\nLewis & Clark Park");
+                    System.out.println("There are two national parks in the state of Indiana: \n\nGeorge Rogers Clark Park\n\nIndiana Dunes Park");
                 }
             }
             else
