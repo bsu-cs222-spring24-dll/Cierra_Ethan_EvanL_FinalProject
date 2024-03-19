@@ -42,18 +42,34 @@ public class Main {
 
 
             Scanner console = new Scanner(System.in);
-            System.out.println("What type of park are you looking for?");
+
+            System.out.println("Enter '1' to learn what national parks are in each state, or enter '2' to search for national parks specifically");
             String userInput= console.nextLine();
-
-            if(userInput.equals("beach"))
+            if(userInput.equals("1"))
             {
-                System.out.println("Here are some beaches to visit: \n\nGulf Islands National Seashore\nnCape Lookout National Seashore");
+                System.out.println("Which state would you like to learn about?");
+                userInput=console.nextLine();
+                if(userInput.equals("Indiana"))
+                {
+                    System.out.println("There are three national parks in the state of Indiana: \n\nGeorge Rogers Clark Park\n\nIndiana Dunes Park\n\nLewis & Clark Park");
+                }
+            }
+            else
+            {
+                System.out.println("What type of park are you looking for?");
+                userInput=console.nextLine();
+
+                if(userInput.equals("beach"))
+                {
+                    System.out.println("Here are some beaches to visit: \n\nGulf Islands National Seashore\n\nCape Lookout National Seashore");
+                }
+
+                if(userInput.equals("hiking trails"))
+                {
+                    System.out.println("Here are some National parks with hiking trails to visit: \n\nYosemite National Park\n\nZion National Park\n\nGrand Canyon National Park\n\nArches National Park");
+                }
             }
 
-            if(userInput.equals("hiking trails"))
-            {
-                System.out.println("Here are some National parks with hiking trails to visit: \n\nYosemite National Park\n\nZion National Park\n\nGrand Canyon National Park\n\nArches National Park");
-            }
 
             /*
             // Parse JSON response
