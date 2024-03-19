@@ -1,18 +1,15 @@
 package cs.edu.bsu;
 
-import javax.json.Json;
-import javax.json.JsonArray;
-import javax.json.JsonObject;
-import javax.json.JsonReader;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
+import java.util.Scanner;
 
-public class WikipediaTravelSearch {
 
+public class Main {
     public static void main(String[] args) {
         try {
             String searchTerm = "Travel"; // Your search term
@@ -43,11 +40,30 @@ public class WikipediaTravelSearch {
             }
             in.close();
 
+
+            Scanner console = new Scanner(System.in);
+            System.out.println("What type of park are you looking for?");
+            String userInput= console.nextLine();
+
+            if(userInput.equals("beach"))
+            {
+                System.out.println("Here are some beaches to visit: \n\nGulf Islands National Seashore\nnCape Lookout National Seashore");
+            }
+
+            if(userInput.equals("hiking trails"))
+            {
+                System.out.println("Here are some National parks with hiking trails to visit: \n\nYosemite National Park\n\nZion National Park\n\nGrand Canyon National Park\n\nArches National Park");
+            }
+
+            /*
             // Parse JSON response
+            Object Json;
             JsonReader jsonReader = Json.createReader(new java.io.StringReader(response.toString()));
             JsonObject jsonResponse = jsonReader.readObject();
             JsonObject query = jsonResponse.getJsonObject("query");
             JsonArray searchResults = query.getJsonArray("search");
+
+
 
             // Print search results titles
             for (int i = 0; i < searchResults.size(); i++) {
@@ -56,8 +72,8 @@ public class WikipediaTravelSearch {
                 System.out.println(title);
             }
 
-        } catch (IOException e) {
+        */} catch (IOException e) {
             e.printStackTrace();
-        }
+       }
     }
 }
