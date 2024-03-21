@@ -15,7 +15,7 @@ public class InputLogic
         }
         else
         {
-            return "Error";
+            return "Error: No valid input given";
         }
         }
     }

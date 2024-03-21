@@ -37,4 +37,26 @@ public class UserInput
         return search;
     }
 
+    public String loop()
+    {
+        Scanner console = new Scanner(System.in);
+        String i="y";
+        System.out.println();
+        while(!i.equals("n") && !i.equals("N"))
+        {
+
+            UserInput user = new UserInput();
+            InputLogic test = new InputLogic();
+            CheckSearchField check = new CheckSearchField();
+            String search = "";
+            search = user.getModeInput();
+            search = test.checkModeInput(search);
+            Boolean logicCheck = check.stateHasPark(search);
+            System.out.println("New Search?");
+            i = console.nextLine();
+        }
+       return "LOGGING OFF";
+    }
+
+
 }
