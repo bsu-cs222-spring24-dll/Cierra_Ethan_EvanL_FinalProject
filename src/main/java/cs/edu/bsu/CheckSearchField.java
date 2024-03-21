@@ -17,14 +17,15 @@ public class CheckSearchField
 
     public boolean stateHasPark(String search)
     {
-        if(search.equals("Indiana") || search.equals("California") || search.equals("Alaska") || search.equals("Arizona") || search.equals("Arkansas")
-                || search.equals("Ohio") || search.equals("Colorado") || search.equals("Florida") ||
-                search.equals("Hawaii") || search.equals("Idaho") || search.equals("Kentucky") || search.equals("Maine") ||
-                search.equals("Michigan") || search.equals("Minnesota") || search.equals("Missouri") || search.equals("Montana")
-                || search.equals("Nevada") || search.equals("New Mexico") || search.equals("North Dakota") ||
-                search.equals("North Carolina") || search.equals("Oregon") || search.equals("South Carolina") ||
-                search.equals("South Dakota") || search.equals("Tennessee") || search.equals("Texas") || search.equals("Utah") ||
-                search.equals("Virginia") || search.equals("Washington") || search.equals("Wyoming") || search.equals("West Virginia"))
+        String capSearch = search.toUpperCase();
+        if(capSearch.equals("INDIANA") || capSearch.equals("CALIFORNIA") || capSearch.equals("ALASKA") || capSearch.equals("ARIZONA") || capSearch.equals("ARKANSAS")
+                || capSearch.equals("OHIO") || capSearch.equals("COLORADO") || capSearch.equals("FLORIDA") ||
+                capSearch.equals("HAWAII") || capSearch.equals("IDAHO") || capSearch.equals("KENTUCKY") || capSearch.equals("MAINE") ||
+                capSearch.equals("MICHIGAN") || capSearch.equals("MINNESOTA") || capSearch.equals("MISSOURI") || capSearch.equals("MONTANA")
+                || capSearch.equals("NEVADA") || capSearch.equals("NEW MEXICO") || capSearch.equals("NORTH DAKOTA") ||
+                capSearch.equals("NORTH CAROLINA") || capSearch.equals("OREGON") || capSearch.equals("SOUTH CAROLINA") ||
+                capSearch.equals("SOUTH DAKOTA") || capSearch.equals("TENNESSEE") || capSearch.equals("TEXAS") || capSearch.equals("UTAH") ||
+                capSearch.equals("VIRGINIA") || capSearch.equals("WASHINGTON") || capSearch.equals("WYOMING") || capSearch.equals("WEST VIRGINIA"))
         {
             System.out.println(search+" has a park");
             return true;
@@ -39,11 +40,12 @@ public class CheckSearchField
 
     public boolean isAState(String search)
     {
-        if(search.equals("Alabama")||search.equals("Connecticut")||search.equals("Delaware")||
-                search.equals("Illinois")||search.equals("Iowa")||search.equals("Kansas")||search.equals("Louisiana")||
-                search.equals("Maryland")||search.equals("Massachusetts")||search.equals("Mississippi")||search.equals("Nebraska")||
-                search.equals("New Hampshire")||search.equals("New Jersey")||search.equals("New York")||search.equals("Rhode Island")||
-                search.equals("Oklahoma")||search.equals("Pennsylvania")||search.equals("Vermont")||search.equals("Wisconsin"))
+        String capSearch=search.toUpperCase();
+        if(capSearch.equals("ALABAMA")||capSearch.equals("CONNECTICUT")||capSearch.equals("DELAWARE")||
+                capSearch.equals("ILLINOIS")||capSearch.equals("IOWA")||capSearch.equals("KANSAS")||capSearch.equals("LOUISIANA")||
+                capSearch.equals("MARYLAND")||capSearch.equals("MASSACHUSETTS")||capSearch.equals("MISSISSIPPI")||capSearch.equals("NEBRASKA")||
+                capSearch.equals("NEW HAMPSHIRE")||capSearch.equals("NEW JERSEY")||capSearch.equals("NEW YORK")||capSearch.equals("RHODE ISLAND")||
+                capSearch.equals("OKLAHOMA")||capSearch.equals("PENNSYLVANIA")||capSearch.equals("VERMONT")||capSearch.equals("WISCONSIN"))
         {
             return true;
         }
@@ -64,7 +66,7 @@ public class CheckSearchField
         }
         else
         {
-            System.out.println("Error: State does not exist");
+            System.out.println("No valid input given");
             return search;
         }
     }
