@@ -39,7 +39,7 @@ public class CheckSearchField
 
     public boolean isAState(String search)
     {
-        if(search.equals("Alabama")||search.equals("Connecticut")||search.equals("Delaware")||search.equals("")||
+        if(search.equals("Alabama")||search.equals("Connecticut")||search.equals("Delaware")||
                 search.equals("Illinois")||search.equals("Iowa")||search.equals("Kansas")||search.equals("Louisiana")||
                 search.equals("Maryland")||search.equals("Massachusetts")||search.equals("Mississippi")||search.equals("Nebraska")||
                 search.equals("New Hampshire")||search.equals("New Jersey")||search.equals("New York")||search.equals("Rhode Island")||
