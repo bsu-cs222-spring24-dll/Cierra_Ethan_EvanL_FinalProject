@@ -12,7 +12,7 @@ public class InputLogic
         }
         if(search.equals("Park"))
         {
-            return console.getParkInput("Yes");
+            return "0";
         }
         else
         {

@@ -74,6 +74,12 @@ public class CheckSearchField
         }
     }
 
+    public String readParkInput(String search)
+    {
+        //This method should take the search variable, which will be the name of a state park, and open the file correlated to said park
+        return search;
+    }
+
 
 
 }

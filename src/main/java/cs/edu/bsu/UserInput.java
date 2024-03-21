@@ -22,6 +22,8 @@ public class UserInput
         {
             System.out.println("What park would you like to know more about?");
             search = console.nextLine();
+
+
             return search;
         }
         else
@@ -56,6 +58,7 @@ public class UserInput
             InputLogic test = new InputLogic();
             CheckSearchField check = new CheckSearchField();
 
+
             //first search must equal state due to checkMode input checking if search equals state in order to continue
             String search = "State";
 
@@ -63,6 +66,7 @@ public class UserInput
             boolean logicCheck = check.stateHasPark(search);
             search=test.continueInputLogic(logicCheck);
             search=user.getParkInput(search);
+            System.out.println(search);
             System.out.println("New Search?");
             i = console.nextLine();
         }
