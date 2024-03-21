@@ -38,6 +38,12 @@ public class CheckSearchField
         }
     }
 
+    public String readStateFile(String search)
+    {
+        //This method will fit into the "stateHasPark" method and open the states related file
+        return search;
+    }
+
 
 
 
@@ -73,6 +79,7 @@ public class CheckSearchField
             return false;
         }
     }
+
 
     public String readParkInput(String search)
     {

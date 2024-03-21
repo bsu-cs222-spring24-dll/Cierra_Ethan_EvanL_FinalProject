@@ -64,6 +64,7 @@ public class UserInput
 
             search = test.checkModeInput(search);
             boolean logicCheck = check.stateHasPark(search);
+
             search=test.continueInputLogic(logicCheck);
             search=user.getParkInput(search);
             System.out.println(search);
