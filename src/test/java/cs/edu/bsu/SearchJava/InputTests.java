@@ -32,5 +32,13 @@ public class InputTests
         Assertions.assertEquals(true,check);
     }
 
+    @Test
+    public void testCheckIfStateExists() throws IOException
+    {
+        CheckSearchField test = new CheckSearchField();
+        boolean check = test.checkIfStateExists("Puerto Rico");
+        Assertions.assertEquals(false,check);
+    }
+
 
 }

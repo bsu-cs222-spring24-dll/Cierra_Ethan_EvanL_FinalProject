@@ -38,6 +38,9 @@ public class CheckSearchField
         }
     }
 
+
+
+
     public boolean isAState(String search)
     {
         String capSearch=search.toUpperCase();
@@ -56,18 +59,21 @@ public class CheckSearchField
         }
 
        }
-    public String checkIfStateExists(String search)
+    public boolean checkIfStateExists(String search)
     {
         boolean aState = isAState(search);
         if(aState)
         {
             System.out.println(search + " does not contain any national parks");
-            return search;
+            return true;
         }
         else
         {
             System.out.println("No valid input given");
-            return search;
+            return false;
         }
     }
+
+
+
 }
