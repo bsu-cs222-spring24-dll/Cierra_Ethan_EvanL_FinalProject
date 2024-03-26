@@ -1,5 +1,7 @@
 package cs.edu.bsu;
 
+import java.io.IOException;
+
 public class CheckSearchField
 {
     //Check if input was given
@@ -15,8 +17,7 @@ public class CheckSearchField
         }
     }
 
-    public boolean stateHasPark(String search)
-    {
+    public boolean stateHasPark(String search) throws IOException {
         String capSearch = search.toUpperCase();
         if(capSearch.equals("INDIANA") || capSearch.equals("CALIFORNIA") || capSearch.equals("ALASKA") || capSearch.equals("ARIZONA") || capSearch.equals("ARKANSAS")
                 || capSearch.equals("OHIO") || capSearch.equals("COLORADO") || capSearch.equals("FLORIDA") ||
@@ -27,7 +28,9 @@ public class CheckSearchField
                 capSearch.equals("SOUTH DAKOTA") || capSearch.equals("TENNESSEE") || capSearch.equals("TEXAS") || capSearch.equals("UTAH") ||
                 capSearch.equals("VIRGINIA") || capSearch.equals("WASHINGTON") || capSearch.equals("WYOMING") || capSearch.equals("WEST VIRGINIA"))
         {
-            System.out.println(search+" has a park");
+            System.out.println(search+" contains the following parks:");
+            PrintFile file = new PrintFile();
+            file.openFile(search,"states");
             return true;
         }
         else
@@ -81,9 +84,10 @@ public class CheckSearchField
     }
 
 
-    public String readParkInput(String search)
-    {
+    public String readParkInput(String search) throws IOException {
         //This method should take the search variable, which will be the name of a state park, and open the file correlated to said park
+        PrintFile file = new PrintFile();
+        file.openFile(search,"parks");
         return search;
     }
 

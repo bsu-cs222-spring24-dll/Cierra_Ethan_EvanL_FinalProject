@@ -2,6 +2,7 @@ package cs.edu.bsu;
 
 
 
+import java.io.IOException;
 import java.util.Scanner;
 
 public class UserInput
@@ -46,8 +47,7 @@ public class UserInput
 
 
     //Loops the main program so user can search multiple states or search again after a typo
-    public String loop()
-    {
+    public String loop() throws IOException {
         Scanner console = new Scanner(System.in);
         String i="y";
         System.out.println();
