@@ -67,6 +67,7 @@ public class UserInput
 
             search=test.continueInputLogic(logicCheck);
             search=user.getParkInput(search);
+            check.readParkInput(search);
             System.out.println(search);
             System.out.println("New Search?");
             i = console.nextLine();
