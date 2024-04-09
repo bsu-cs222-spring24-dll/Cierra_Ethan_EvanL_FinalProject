@@ -7,14 +7,7 @@ public class CheckSearchField
     //Check if input was given
     public boolean hasInput(String search)
     {
-        if(search.isBlank())
-        {
-            return false;
-        }
-        else
-        {
-            return true;
-        }
+        return !search.isBlank();
     }
 
     public boolean stateHasPark(String search) throws IOException {
@@ -53,19 +46,11 @@ public class CheckSearchField
     public boolean isAState(String search)
     {
         String capSearch=search.toUpperCase();
-        if(capSearch.equals("ALABAMA")||capSearch.equals("CONNECTICUT")||capSearch.equals("DELAWARE")||
-                capSearch.equals("ILLINOIS")||capSearch.equals("IOWA")||capSearch.equals("KANSAS")||capSearch.equals("LOUISIANA")||
-                capSearch.equals("MARYLAND")||capSearch.equals("MASSACHUSETTS")||capSearch.equals("MISSISSIPPI")||capSearch.equals("NEBRASKA")||
-                capSearch.equals("NEW HAMPSHIRE")||capSearch.equals("NEW JERSEY")||capSearch.equals("NEW YORK")||capSearch.equals("RHODE ISLAND")||
-                capSearch.equals("OKLAHOMA")||capSearch.equals("PENNSYLVANIA")||capSearch.equals("VERMONT")||capSearch.equals("WISCONSIN"))
-        {
-            return true;
-        }
-        else
-        {
-
-            return false;
-        }
+        return capSearch.equals("ALABAMA") || capSearch.equals("CONNECTICUT") || capSearch.equals("DELAWARE") ||
+                capSearch.equals("ILLINOIS") || capSearch.equals("IOWA") || capSearch.equals("KANSAS") || capSearch.equals("LOUISIANA") ||
+                capSearch.equals("MARYLAND") || capSearch.equals("MASSACHUSETTS") || capSearch.equals("MISSISSIPPI") || capSearch.equals("NEBRASKA") ||
+                capSearch.equals("NEW HAMPSHIRE") || capSearch.equals("NEW JERSEY") || capSearch.equals("NEW YORK") || capSearch.equals("RHODE ISLAND") ||
+                capSearch.equals("OKLAHOMA") || capSearch.equals("PENNSYLVANIA") || capSearch.equals("VERMONT") || capSearch.equals("WISCONSIN");
 
        }
     public boolean checkIfStateExists(String search)

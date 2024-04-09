@@ -2,7 +2,7 @@ package cs.edu.bsu;
 
 public class InputLogic
 {
-    String state ="";
+    //String state ="";
     UserInput console = new UserInput();
     public String checkModeInput(String search)
     {
@@ -22,18 +22,17 @@ public class InputLogic
 
     public String continueInputLogic(boolean check)
     {
-       String userAnswer = "no";
+       String userAnswer;
         UserInput test = new UserInput();
-        if(check==true)
+        if(check)
         {
             userAnswer=test.getContinueInput();
-            return userAnswer;
         }
         else
         {
             userAnswer="no";
-            return userAnswer;
         }
+        return userAnswer;
     }
 }
 

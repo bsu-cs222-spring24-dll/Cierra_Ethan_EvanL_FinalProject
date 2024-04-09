@@ -17,6 +17,8 @@ public class UserInput
     }
 
     public String getParkInput(String search)
+   /*if String search is no, then program crashes... need to figure out a way to have getParkInput recognize a 'no'
+   input and end the program without an error*/
     {
         search=search.toUpperCase();
         if(search.equals("YES")||search.equals("Y"))
@@ -25,12 +27,8 @@ public class UserInput
             search = console.nextLine();
 
 
-            return search;
         }
-        else
-        {
-         return search;
-        }
+        return search;
 
     }
 
@@ -51,7 +49,7 @@ public class UserInput
         Scanner console = new Scanner(System.in);
         String i="y";
         System.out.println();
-        while(!i.equals("n") && !i.equals("N"))
+        while(!i.equals("NO") && !i.equals("N"))
         {
 
             UserInput user = new UserInput();
@@ -71,6 +69,7 @@ public class UserInput
             System.out.println(search);
             System.out.println("New Search?");
             i = console.nextLine();
+            i=i.toUpperCase();
         }
        return "LOGGING OFF";
     }
