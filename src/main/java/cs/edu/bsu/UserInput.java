@@ -28,6 +28,11 @@ public class UserInput
 
 
         }
+        else
+        {
+            System.out.println("LOGGING OFF");
+            System.exit(0);
+        }
         return search;
 
     }
@@ -48,8 +53,9 @@ public class UserInput
     public String loop() throws IOException {
         Scanner console = new Scanner(System.in);
         String i="y";
+        i=i.toUpperCase();
         System.out.println();
-        while(!i.equals("NO") && !i.equals("N"))
+        while(i.equals("Y") || i.equals("YES"))
         {
 
             UserInput user = new UserInput();

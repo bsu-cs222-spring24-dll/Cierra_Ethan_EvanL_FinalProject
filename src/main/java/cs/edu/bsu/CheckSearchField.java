@@ -64,6 +64,8 @@ public class CheckSearchField
         else
         {
             System.out.println("No valid input given");
+            System.out.println("LOGGING OFF");
+            System.exit(0);
             return false;
         }
     }

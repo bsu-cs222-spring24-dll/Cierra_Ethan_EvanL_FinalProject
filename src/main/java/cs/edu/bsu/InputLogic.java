@@ -10,10 +10,6 @@ public class InputLogic
         {
             return console.getStateInput();
         }
-        if(search.equals("Park"))
-        {
-            return "0";
-        }
         else
         {
             return "No valid input given";
@@ -31,6 +27,9 @@ public class InputLogic
         else
         {
             userAnswer="no";
+            System.out.println("No park searched");
+            System.out.println("LOGGING OFF");
+            System.exit(0);
         }
         return userAnswer;
     }
