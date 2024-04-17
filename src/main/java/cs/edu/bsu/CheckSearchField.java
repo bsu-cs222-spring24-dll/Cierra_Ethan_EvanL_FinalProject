@@ -59,13 +59,13 @@ public class CheckSearchField
         if(aState)
         {
             System.out.println(search + " does not contain any national parks");
-            return true;
+            return false;
         }
         else
         {
             System.out.println("No valid input given");
-            System.out.println("LOGGING OFF");
-            System.exit(0);
+
+
             return false;
         }
     }

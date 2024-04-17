@@ -1,37 +1,44 @@
 package cs.edu.bsu;
 
+import java.io.IOException;
+import java.util.Scanner;
+
 public class InputLogic
 {
     //String state ="";
     UserInput console = new UserInput();
-    public String checkModeInput(String search)
+
+    public String noStateExists(boolean check)
     {
-        if(search.equals("State"))
-        {
-            return console.getStateInput();
-        }
-        else
-        {
-            return "No valid input given";
-        }
+        String userAnswer;
+
+
+        System.out.println("Enter a different state?");
+        Scanner console = new Scanner(System.in);
+        userAnswer= console.nextLine();
+        return userAnswer;
     }
 
-    public String continueInputLogic(boolean check)
-    {
-       String userAnswer;
-        UserInput test = new UserInput();
-        if(check)
+
+    public void enterDifferentState(String answer) throws IOException {
+        answer=answer.toUpperCase();
+        if(answer.equals("YES")||answer.equals("Y"))
         {
-            userAnswer=test.getContinueInput();
+            TravelGuide guide = new TravelGuide();
+            guide.stateSearcher();
         }
-        else
+        if (answer.equals("NO")||answer.equals("N"))
         {
-            userAnswer="no";
-            System.out.println("No park searched");
             System.out.println("LOGGING OFF");
             System.exit(0);
         }
-        return userAnswer;
+        else
+        {
+            System.out.println("No valid input given");
+
+            answer=noStateExists(false);
+            enterDifferentState(answer);
+        }
     }
 }
 

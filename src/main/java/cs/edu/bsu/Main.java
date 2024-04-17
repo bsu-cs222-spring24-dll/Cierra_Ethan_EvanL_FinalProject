@@ -1,6 +1,8 @@
 package cs.edu.bsu;
 
 
+import javafx.stage.Stage;
+
 import java.io.IOException;
 import java.util.Objects;
 import java.util.Scanner;
@@ -8,10 +10,12 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) throws IOException {
-        UserInput user = new UserInput();
-        String end="";
-        end= user.loop();
-        System.out.println(end);
+       //TravelGuide guide = new TravelGuide();
+       //guide.stateSearcher();
+       //guide.parkSearcher();
+        GUI test = new GUI();
+
+        //test.start(stage);
 
 
     }

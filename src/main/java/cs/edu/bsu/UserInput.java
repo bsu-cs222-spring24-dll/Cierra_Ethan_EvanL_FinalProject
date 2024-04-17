@@ -16,7 +16,7 @@ public class UserInput
         return search;
     }
 
-    public String getParkInput(String search)
+    public String getParkInput(String search) throws IOException
    /*if String search is no, then program crashes... need to figure out a way to have getParkInput recognize a 'no'
    input and end the program without an error*/
     {
@@ -25,13 +25,19 @@ public class UserInput
         {
             System.out.println("What park would you like to know more about?");
             search = console.nextLine();
-
-
+            return search;
+        }
+        if(search.equals("NO")||search.equals("N"))
+        {
+            InputLogic logic = new InputLogic();
+            search=logic.noStateExists(false);
+            logic.enterDifferentState(search);
         }
         else
         {
-            System.out.println("LOGGING OFF");
-            System.exit(0);
+            System.out.println("No valid input given");
+            search = getContinueInput();
+            getParkInput(search);
         }
         return search;
 
@@ -63,13 +69,16 @@ public class UserInput
             CheckSearchField check = new CheckSearchField();
 
 
-            //first search must equal state due to checkMode input checking if search equals state in order to continue
-            String search = "State";
 
-            search = test.checkModeInput(search);
+            String search = "";
+            search = user.getStateInput();
+
             boolean logicCheck = check.stateHasPark(search);
 
-            search=test.continueInputLogic(logicCheck);
+           // search=test.continueInputLogic(logicCheck);
+            //make a break here
+
+            //new method for the following lines
             search=user.getParkInput(search);
             check.readParkInput(search);
             System.out.println(search);
