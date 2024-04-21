@@ -73,8 +73,19 @@ public class CheckSearchField
 
     public String readParkInput(String search) throws IOException {
         //This method should take the search variable, which will be the name of a state park, and open the file correlated to said park
-        PrintFile file = new PrintFile();
-        file.openFile(search,"parks");
+
+        try{
+            PrintFile file = new PrintFile();
+            file.openFile(search,"parks");
+
+        }
+        catch(Exception e)
+        {
+            System.out.println("No valid park input given");
+            UserInput inp = new UserInput();
+            TravelGuide system= new TravelGuide();
+            system.parkSearcher("Y");
+        }
         return search;
     }
 

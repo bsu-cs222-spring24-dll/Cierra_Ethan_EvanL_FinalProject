@@ -10,10 +10,10 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) throws IOException {
-       //TravelGuide guide = new TravelGuide();
-       //guide.stateSearcher();
-       //guide.parkSearcher();
-        GUI test = new GUI();
+       TravelGuide guide = new TravelGuide();
+       guide.stateSearcher();
+
+        //GUI test = new GUI();
 
         //test.start(stage);
 

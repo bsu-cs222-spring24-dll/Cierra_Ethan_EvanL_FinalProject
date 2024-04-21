@@ -21,10 +21,12 @@ public class UserInput
    input and end the program without an error*/
     {
         search=search.toUpperCase();
-        if(search.equals("YES")||search.equals("Y"))
+
+        if(search.equals("Y")|| search.equals("YES"))
         {
             System.out.println("What park would you like to know more about?");
             search = console.nextLine();
+            System.out.println(search);
             return search;
         }
         if(search.equals("NO")||search.equals("N"))
@@ -35,9 +37,11 @@ public class UserInput
         }
         else
         {
+
             System.out.println("No valid input given");
             search = getContinueInput();
-            getParkInput(search);
+            search=getParkInput(search);
+            return search;
         }
         return search;
 
@@ -48,46 +52,8 @@ public class UserInput
 
         System.out.println("Would you like to know more about one of these parks?");
         search = console.nextLine();
+        System.out.println(search);
         return search;
     }
-
-
-
-
-
-    //Loops the main program so user can search multiple states or search again after a typo
-    public String loop() throws IOException {
-        Scanner console = new Scanner(System.in);
-        String i="y";
-        i=i.toUpperCase();
-        System.out.println();
-        while(i.equals("Y") || i.equals("YES"))
-        {
-
-            UserInput user = new UserInput();
-            InputLogic test = new InputLogic();
-            CheckSearchField check = new CheckSearchField();
-
-
-
-            String search = "";
-            search = user.getStateInput();
-
-            boolean logicCheck = check.stateHasPark(search);
-
-           // search=test.continueInputLogic(logicCheck);
-            //make a break here
-
-            //new method for the following lines
-            search=user.getParkInput(search);
-            check.readParkInput(search);
-            System.out.println(search);
-            System.out.println("New Search?");
-            i = console.nextLine();
-            i=i.toUpperCase();
-        }
-       return "LOGGING OFF";
-    }
-
 
 }
