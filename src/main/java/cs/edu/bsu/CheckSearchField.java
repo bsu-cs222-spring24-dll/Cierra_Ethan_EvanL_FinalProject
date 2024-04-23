@@ -5,12 +5,12 @@ import java.io.IOException;
 public class CheckSearchField
 {
     //Check if input was given
-    public boolean hasInput(String search)
+    public String hasInput(String search)
     {
-        return !search.isBlank();
+        return search;
     }
 
-    public boolean stateHasPark(String search) throws IOException {
+    public String stateHasPark(String search) throws IOException {
         String capSearch = search.toUpperCase();
         if(capSearch.equals("INDIANA") || capSearch.equals("CALIFORNIA") || capSearch.equals("ALASKA") || capSearch.equals("ARIZONA") || capSearch.equals("ARKANSAS")
                 || capSearch.equals("OHIO") || capSearch.equals("COLORADO") || capSearch.equals("FLORIDA") ||
@@ -23,14 +23,15 @@ public class CheckSearchField
         {
             System.out.println(search+" contains the following parks:");
             PrintFile file = new PrintFile();
-            file.openFile(search,"states");
-            return true;
+            String parkList=file.openFile(search,"states");
+
+            return parkList;
         }
         else
         {
             checkIfStateExists(search);
 
-            return false;
+            return "";
         }
     }
 
@@ -73,10 +74,10 @@ public class CheckSearchField
 
     public String readParkInput(String search) throws IOException {
         //This method should take the search variable, which will be the name of a state park, and open the file correlated to said park
-
+        String outputString = "";
         try{
             PrintFile file = new PrintFile();
-            file.openFile(search,"parks");
+            outputString=file.openFile(search,"parks");
 
         }
         catch(Exception e)
@@ -86,7 +87,7 @@ public class CheckSearchField
             TravelGuide system= new TravelGuide();
             system.parkSearcher("Y");
         }
-        return search;
+        return outputString;
     }
 
 

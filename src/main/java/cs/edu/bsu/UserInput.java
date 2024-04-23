@@ -32,7 +32,7 @@ public class UserInput
         if(search.equals("NO")||search.equals("N"))
         {
             InputLogic logic = new InputLogic();
-            search=logic.noStateExists(false);
+            search=logic.noStateExists();
             logic.enterDifferentState(search);
         }
         else

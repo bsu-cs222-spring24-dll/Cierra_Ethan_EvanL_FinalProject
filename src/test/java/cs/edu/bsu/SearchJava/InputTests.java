@@ -12,16 +12,16 @@ public class InputTests
     public void testHasInput() throws IOException
     {
         CheckSearchField test = new CheckSearchField();
-        boolean check = test.hasInput("test");
-        Assertions.assertEquals(true,check);
+        String check = test.hasInput("test");
+        Assertions.assertEquals("test",check);
     }
 
     @Test
     public void testStateHasPark() throws IOException
     {
         CheckSearchField test = new CheckSearchField();
-        boolean check = test.stateHasPark("Indiana");
-        Assertions.assertEquals(true,check);
+        String check = test.stateHasPark("Indiana");
+        Assertions.assertEquals("1. Indiana Dunes National Park",check);
     }
 
     @Test

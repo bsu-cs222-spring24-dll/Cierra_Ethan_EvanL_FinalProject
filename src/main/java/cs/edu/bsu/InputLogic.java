@@ -8,7 +8,7 @@ public class InputLogic
     //String state ="";
     UserInput console = new UserInput();
 
-    public String noStateExists(boolean check)
+    public String noStateExists()
     {
         String userAnswer;
 
@@ -22,21 +22,30 @@ public class InputLogic
 
     public void enterDifferentState(String answer) throws IOException {
         answer=answer.toUpperCase();
-        if(answer.equals("YES")||answer.equals("Y"))
+
+        while(answer.equals("YES")||answer.equals("Y"))
         {
-            TravelGuide guide = new TravelGuide();
-            guide.stateSearcher();
+            if(answer.equals("YES")||answer.equals("Y"))
+            {
+                TravelGuide guide = new TravelGuide();
+                String state=guide.stateSearcher();
+                guide.parkSearcher(state);
+                answer=noStateExists().toUpperCase();
+
+            }
+
         }
         if (answer.equals("NO")||answer.equals("N"))
         {
             System.out.println("LOGGING OFF");
             System.exit(0);
         }
+
         else
         {
             System.out.println("No valid input given");
 
-            answer=noStateExists(false);
+            answer=noStateExists();
             enterDifferentState(answer);
         }
     }

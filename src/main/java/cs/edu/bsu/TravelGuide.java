@@ -5,7 +5,9 @@ import java.io.IOException;
 public class TravelGuide extends UserInput
 {
    public static String search;
-   public static boolean checkReturn;
+   public static String checkReturn;
+
+
     public String readStateInput()
     {
         String mainSearch="";
@@ -19,41 +21,49 @@ public class TravelGuide extends UserInput
 
     public String stateSearcher() throws IOException {
         search=readStateInput();
+
         CheckSearchField checker = new CheckSearchField();
         checkReturn= checker.stateHasPark(search);
-        System.out.println(checkReturn);
-        if (checkReturn)
+        //checkReturn= list of parks in the state
+        //System.out.println(checkReturn);
+
+        if (!checkReturn.isEmpty())
         {
-           search=getContinueInput();
+            System.out.println(checkReturn);
+
         }
         else
         {
             System.out.println("NO STATE EXISTS");
             InputLogic logic = new InputLogic();
-            search = logic.noStateExists(checkReturn);
+            search = logic.noStateExists();
 
             //method to check this answer
             logic.enterDifferentState(search);
         }
 
-        parkSearcher(search);
+
         return search;
     }
 
 
 
-    public void parkSearcher(String search) throws IOException {
-
+    public String parkSearcher(String search) throws IOException {
+        search=getContinueInput();
         search=getParkInput(search);
         CheckSearchField checker = new CheckSearchField();
         //If park is spelled incorrectly program crashes
 
-        checker.readParkInput(search);
+        search=checker.readParkInput(search);
+        System.out.println(search);
+        return search;
 
-
+        /*
         InputLogic logic = new InputLogic();
-        search=logic.noStateExists(false);
+        search=logic.noStateExists();
         logic.enterDifferentState(search);
+
+         */
 
     }
 }
