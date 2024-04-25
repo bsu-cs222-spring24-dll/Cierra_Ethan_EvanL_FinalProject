@@ -10,37 +10,36 @@ public class CheckSearchField
         return search;
     }
 
-    public String stateHasPark(String search) throws IOException {
-        String capSearch = search.toUpperCase();
-        if(capSearch.equals("INDIANA") || capSearch.equals("CALIFORNIA") || capSearch.equals("ALASKA") || capSearch.equals("ARIZONA") || capSearch.equals("ARKANSAS")
+    public String stateHasPark(String search) throws IOException
+    {
+        if(isStateWithPark(search))
+        {
+            System.out.println(search+" contains the following parks:");
+            PrintFile file = new PrintFile();
+            return file.openFile(search,"states");
+        }
+        if(!isStateWithPark(search))
+        {
+            search=checkIfStateExists(search);
+            System.out.println(search);
+            return search;
+        }
+        return search;
+    }
+
+
+    public boolean isStateWithPark(String search)
+    {
+        String capSearch=search.toUpperCase();
+        return capSearch.equals("INDIANA") || capSearch.equals("CALIFORNIA") || capSearch.equals("ALASKA") || capSearch.equals("ARIZONA") || capSearch.equals("ARKANSAS")
                 || capSearch.equals("OHIO") || capSearch.equals("COLORADO") || capSearch.equals("FLORIDA") ||
                 capSearch.equals("HAWAII") || capSearch.equals("IDAHO") || capSearch.equals("KENTUCKY") || capSearch.equals("MAINE") ||
                 capSearch.equals("MICHIGAN") || capSearch.equals("MINNESOTA") || capSearch.equals("MISSOURI") || capSearch.equals("MONTANA")
                 || capSearch.equals("NEVADA") || capSearch.equals("NEW MEXICO") || capSearch.equals("NORTH DAKOTA") ||
                 capSearch.equals("NORTH CAROLINA") || capSearch.equals("OREGON") || capSearch.equals("SOUTH CAROLINA") ||
                 capSearch.equals("SOUTH DAKOTA") || capSearch.equals("TENNESSEE") || capSearch.equals("TEXAS") || capSearch.equals("UTAH") ||
-                capSearch.equals("VIRGINIA") || capSearch.equals("WASHINGTON") || capSearch.equals("WYOMING") || capSearch.equals("WEST VIRGINIA"))
-        {
-            System.out.println(search+" contains the following parks:");
-            PrintFile file = new PrintFile();
-            String parkList=file.openFile(search,"states");
-
-            return parkList;
-        }
-        else
-        {
-            checkIfStateExists(search);
-
-            return "";
-        }
+                capSearch.equals("VIRGINIA") || capSearch.equals("WASHINGTON") || capSearch.equals("WYOMING") || capSearch.equals("WEST VIRGINIA");
     }
-
-    public String readStateFile(String search)
-    {
-        //This method will fit into the "stateHasPark" method and open the states related file
-        return search;
-    }
-
 
 
 
@@ -53,28 +52,29 @@ public class CheckSearchField
                 capSearch.equals("NEW HAMPSHIRE") || capSearch.equals("NEW JERSEY") || capSearch.equals("NEW YORK") || capSearch.equals("RHODE ISLAND") ||
                 capSearch.equals("OKLAHOMA") || capSearch.equals("PENNSYLVANIA") || capSearch.equals("VERMONT") || capSearch.equals("WISCONSIN");
 
-       }
-    public boolean checkIfStateExists(String search)
+    }
+    public String checkIfStateExists(String search)
     {
+        String output;
         boolean aState = isAState(search);
         if(aState)
         {
-            System.out.println(search + " does not contain any national parks");
-            return false;
+            output=search + " does not contain any national parks";
         }
         else
         {
-            System.out.println("No valid input given");
+            output="No valid state input given";
 
 
-            return false;
         }
+        return output;
     }
 
 
-    public String readParkInput(String search) throws IOException {
+    public String readParkInput(String search)
+    {
         //This method should take the search variable, which will be the name of a state park, and open the file correlated to said park
-        String outputString = "";
+        String outputString;
         try{
             PrintFile file = new PrintFile();
             outputString=file.openFile(search,"parks");
@@ -82,10 +82,8 @@ public class CheckSearchField
         }
         catch(Exception e)
         {
-            System.out.println("No valid park input given");
-            UserInput inp = new UserInput();
-            TravelGuide system= new TravelGuide();
-            system.parkSearcher("Y");
+           outputString= "No valid park input given";
+
         }
         return outputString;
     }

@@ -17,16 +17,12 @@ public class UserInput
     }
 
     public String getParkInput(String search) throws IOException
-   /*if String search is no, then program crashes... need to figure out a way to have getParkInput recognize a 'no'
-   input and end the program without an error*/
     {
         search=search.toUpperCase();
-
         if(search.equals("Y")|| search.equals("YES"))
         {
             System.out.println("What park would you like to know more about?");
             search = console.nextLine();
-            System.out.println(search);
             return search;
         }
         if(search.equals("NO")||search.equals("N"))
@@ -37,7 +33,6 @@ public class UserInput
         }
         else
         {
-
             System.out.println("No valid input given");
             search = getContinueInput();
             search=getParkInput(search);
@@ -49,10 +44,8 @@ public class UserInput
 
     public String getContinueInput()
     {
-
         System.out.println("Would you like to know more about one of these parks?");
         search = console.nextLine();
-        System.out.println(search);
         return search;
     }
 

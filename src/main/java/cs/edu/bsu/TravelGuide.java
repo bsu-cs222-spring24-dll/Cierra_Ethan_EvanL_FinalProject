@@ -10,7 +10,7 @@ public class TravelGuide extends UserInput
 
     public String readStateInput()
     {
-        String mainSearch="";
+        String mainSearch;
         mainSearch=getStateInput();
         return mainSearch;
     }
@@ -19,51 +19,49 @@ public class TravelGuide extends UserInput
 
 
 
-    public String stateSearcher() throws IOException {
+    public String stateSearcher() throws IOException
+    {
         search=readStateInput();
-
         CheckSearchField checker = new CheckSearchField();
         checkReturn= checker.stateHasPark(search);
-        //checkReturn= list of parks in the state
-        //System.out.println(checkReturn);
-
-        if (!checkReturn.isEmpty())
+        if (!checkReturn.isEmpty() && checker.isStateWithPark(search))
         {
             System.out.println(checkReturn);
-
         }
         else
         {
-            System.out.println("NO STATE EXISTS");
+
             InputLogic logic = new InputLogic();
             search = logic.noStateExists();
 
             //method to check this answer
             logic.enterDifferentState(search);
         }
-
-
         return search;
     }
 
 
 
-    public String parkSearcher(String search) throws IOException {
+                //parkSearcher must have input parameter for GUI functionality
+    public void parkSearcher(String search) throws IOException {
         search=getContinueInput();
         search=getParkInput(search);
         CheckSearchField checker = new CheckSearchField();
-        //If park is spelled incorrectly program crashes
-
         search=checker.readParkInput(search);
         System.out.println(search);
-        return search;
+    }
 
-        /*
-        InputLogic logic = new InputLogic();
-        search=logic.noStateExists();
-        logic.enterDifferentState(search);
-
-         */
-
+    public String checkParkSearch(String search)
+    {
+        String outputString;
+        if(search.equals("No valid park input given"))
+        {
+            outputString = "No valid park input given";
+            return outputString;
+        }
+        else
+        {
+            return search;
+        }
     }
 }

@@ -1,12 +1,9 @@
 package cs.edu.bsu;
 
-import cs.edu.bsu.TravelGuide;
+
 import javafx.application.Application;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
@@ -19,21 +16,22 @@ public class GUI extends Application {
         launch(args);
     }
 
-    private final Button translateButton = new Button("Translate");
+    private final Button StateButton = new Button("State Search");
     private final TextField inputField = new TextField();
-    private final TextField outputField = new TextField();
-    private final ComboBox<String> translatorSelector = new ComboBox<>();
+    private final TextArea outputField = new TextArea();
+    private final Button ParkButton = new Button("Park Search");
 
     @Override
     public void start(Stage primaryStage) {
         outputField.setEditable(false);
         configure(primaryStage);
-        configureComboBox();
-        configureTranslateButton();
+
+        configureStateButton();
+        configureParkButton();
     }
 
     private void configure(Stage stage) {
-        stage.setTitle("Translator");
+        stage.setTitle("Travel Guide");
         stage.setScene(new Scene(createRoot()));
         stage.sizeToScene();
         stage.show();
@@ -44,36 +42,51 @@ public class GUI extends Application {
         root.getChildren().addAll( //
                 new Label("Input:"), //
                 inputField, //
-                translatorSelector, //
-                translateButton, //
+                ParkButton,
+                StateButton, //
                 new Label("Output:"),//
                 outputField);
         return root;
     }
 
-    private void configureComboBox() {
-        translatorSelector.getItems().addAll("Identity");
-    }
 
-    private void configureTranslateButton() {
-        translateButton.setOnAction(event -> {
+
+    private void configureStateButton() {
+        StateButton.setOnAction(event -> {
             try {
-                translateInputFieldToOutputField();
+                StateGUI();
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
         });
     }
 
+    private void configureParkButton() {
+        ParkButton.setOnAction(event -> {
+            try {
+                ParkGUI();
 
-    private void translateInputFieldToOutputField() throws IOException {
-        TravelGuide translator = new TravelGuide();
-        if (translatorSelector.getValue().equals("Identity")) {
-            translator = new TravelGuide();
-        }
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        });
+    }
 
-        String translation = translator.stateSearcher();
-        outputField.setText(translation);
+    private void ParkGUI() throws IOException {
+        CheckSearchField checker = new CheckSearchField();
+        String inputString = inputField.getText();
+        String outputString = checker.readParkInput(inputString);
+        TravelGuide system = new TravelGuide();
+        outputString= system.checkParkSearch(outputString);
+        outputField.setText(outputString);
+    }
+
+
+    private void StateGUI() throws IOException {
+       CheckSearchField checker = new CheckSearchField();
+       String inputString = inputField.getText();
+       String outputString = checker.stateHasPark(inputString);
+        outputField.setText(outputString);
     }
 
 }
